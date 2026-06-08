@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #0f172a;
+    color: white;
+    font-family: 'poppins';
+}
+
+h1{
+    font-weight: 700;
+    font-size: 36px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+p{
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* HEADER */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #020617;
+}
+
+.logo{
+    font-weight: bold;
+    font-size: 44px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+
+
+/* HIDE MOBILE LOGO BY DEFAAULT */
+.mobile-logo{
+display: none;
+}
+
+nav{
+    display: flex;
+    gap: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav a::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #3b82f6;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+
+/* HAMBURGER hidden on desktop */
+.hamburger{
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* hero */
+.hero{
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-image{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+/* SECTION */
+section{
+    /* padding: 50px 20px; */
+    /* padding: 80px 20px; */
+    padding: 100px 20px;
+}
+
+#about{
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* projects */
+.projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card{
+    background: #1e293b;
+    padding: 12px;
+    border-radius: 15px;
+    transition: 0.3s;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;  */
+}
+
+.card p{
+    margin-bottom: 6px;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card img{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0,0,0, 1);
+    
+}
+
+.card-buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.view-btn, .order-btn {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* view button */
+.view-btn{
+    /* background: rgb(75, 75, 119); */
+    background-color: #020617;
+    color: #3b82f6;
+    border: 1px soild white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    flex: 1;
+}
+
+.view-btn:hover {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.order-btn{
+    background: #25D366;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+     flex: 1;  
+}
+
+.order-btn:hover{
+    opacity: 0.9;
+}
+#contact {
+    text-align: center;
+    background: #020617;
+    padding: 20px 20px;
+}
+
+#contact p{
+    padding: 10px 10px;
+}
+
+#contact h3{
+    padding: 10px 10px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.whatsapp-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.whatsapp-btn img{
+    width: 100%;
+    border-radius: 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,1);
+}
+
+@keyframes bounce {
+    0%, 100%{
+        transform: translateY(0);
+    }
+        50%{
+            transform: translateY(-6px);
+        }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    /* switch logos */
+    .desktop-logo {
+        display: none;
+    }
+
+    .mobile-logo{
+        display: block;
+        animation: bounce 5s infinite ease-in-out;
+
+    }
+    
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #020617;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    nav a{
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .projects{
+        grid-template-columns: 1fr;
+    }
+}
